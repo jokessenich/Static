@@ -3,9 +3,9 @@ import {Switch, Route} from 'react-router-dom'
 import  Home from '../Home/Home.js'
 import Register from  '../Register/Register'
 import Login from '../Login/Login'
-import Remedy from '../Remedy/Remedy'
 import Add from '../Add/Add.js'
 import SearchResults from '../SearchResults/SearchResults.js'
+import MaladyList from '../MaladyList/MaladyList'
 
 export default class Main extends React.Component{
 
@@ -20,11 +20,12 @@ export default class Main extends React.Component{
 
             <Route path = '/login' component = {Login}></Route>
 
-            <Route path = '/remedy' component = {Remedy}></Route>
+            <Route path = '/malady' component = {MaladyList}></Route>
 
             <Route path = '/add' component = {Add}></Route>
 
             <Route path = '/search' component = {SearchResults}></Route>
+
         </Switch>            
         )
     }
