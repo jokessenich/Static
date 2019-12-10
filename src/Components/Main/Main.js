@@ -6,6 +6,7 @@ import Login from '../Login/Login'
 import Add from '../Add/Add.js'
 import SearchResults from '../SearchResults/SearchResults.js'
 import MaladyList from '../MaladyList/MaladyList'
+import Malady from '../MaladyList/Malady/Malady'
 
 export default class Main extends React.Component{
 
@@ -20,11 +21,13 @@ export default class Main extends React.Component{
 
             <Route path = '/login' component = {Login}></Route>
 
-            <Route path = '/malady' component = {MaladyList}></Route>
+            <Route path = '/maladylist' component = {MaladyList}></Route>
 
             <Route path = '/add' component = {Add}></Route>
 
             <Route path = '/search' component = {SearchResults}></Route>
+
+            <Route path = '/malady' component = {Malady}></Route>
 
         </Switch>            
         )
