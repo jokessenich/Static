@@ -1,6 +1,77 @@
 .nav-bar{
     width: 100%;
-    height: 5%;
+    height: 50px;
     text-align: center;
-    background-color: gray;
+    background: transparent;
 }
+
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.nav-link:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.nav-bar a.icon {
+    background: transparent;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 2px;;
+    color: white;
+  }
+
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 36px;
+    top: 36px;
+  }
+
+  .bm-burger-bars {
+    background:whitesmoke;
+  }
+
+  a.bm-item.nav-link{
+      padding-top: 30px;
+      font-size: 20pt;
+      height: 80px;
+      font-style: bolder;
+  }
+
+  .bm-overlay{
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  nav.bm-item-list {
+    position: fixed;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 01.03);
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    left: 0px;
+    padding-top: 50px;
+}
+
+.bm-cross {
+    background-color: white;
+    height:50px;
+    width:50px;
+    background-size: cover;
+  }
+
+  .bm-cross-button {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+  }

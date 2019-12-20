@@ -1,0 +1,11 @@
+.remedy-section{
+    white-space: pre-wrap;
+
+}
+
+.liked{
+    background-color: chartreuse;
+}
+.disliked{
+    background-color: pink;
+}

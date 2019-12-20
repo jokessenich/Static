@@ -1,0 +1,22 @@
+.browse-maladies-link{
+    display: block;
+    text-decoration: none;
+    background-color: rgb(173, 145, 212);
+    color: black;
+    margin: 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.browse-maladies-link:hover{
+    background-color: rgb(169, 211, 156);
+}
+
+.remedies-counter{
+    right: 60px;
+    position: fixed;
+    background-color: rgb(185, 183, 183);
+    border-radius: 5px;
+    width: 90px;
+    text-align: center;
+}

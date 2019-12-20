@@ -1,0 +1,18 @@
+.malady-subsection{
+    margin: 3%;
+    padding: 5%;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+h1{
+    text-align: center;
+}
+
+.remedy-section{
+    margin: 5%;
+    padding: 5%;
+    border: 1px solid;
+    border-radius: 5px;
+}
+

@@ -1,0 +1,16 @@
+.autofill-rem{
+    display:block;
+    border: .5px solid black;
+    width: 150px;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 3px;
+    margin-left: 56px;
+    margin-top: 1px;
+}
+
+.autofill-rem:hover{
+    background-color: papayawhip;
+    cursor: pointer;
+}
