@@ -1,6 +1,5 @@
 {
   "name": "our-health",
-  "homepage": "https://jokessenich.github.io/OurHealth/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
