@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "our-health-app",
+    "name": "our-health",
+    "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+    ]
+  }

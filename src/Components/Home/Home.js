@@ -17,7 +17,6 @@ export default class Home extends React.Component {
 
     handleSearch=(e)=> {
         e.preventDefault()
-        debugger;
         const searchTerm = e.currentTarget['home-search-term'].value.toLowerCase()
         console.log(searchTerm)
         const maladyArr = this.context.maladies.filter(mal=> mal.malady_name.toLowerCase() === searchTerm)

@@ -2,7 +2,6 @@ import React from 'react';
 import Footer from './Components/Footer/Footer'
 import Main from './Components/Main/Main'
 import Nav from './Components/Nav/Nav'
-import { HashRouter } from 'react-router-dom'
 import Context from './Context'
 import config from './config'
 import './app.css'
@@ -30,7 +29,6 @@ class App extends React.Component {
     ])
 
       .then(([remedyRes, maladyRes, likesRes, userIdres]) => {
-         debugger;
         return Promise.all([remedyRes.json(), maladyRes.json(), likesRes.json(), userIdres.json()])
       })
 
@@ -71,7 +69,6 @@ class App extends React.Component {
 
     return (
       <Context.Provider value={contextVal}>
-        <HashRouter basename='/'>
           <div className="app">
             <Nav></Nav>
 
@@ -79,7 +76,6 @@ class App extends React.Component {
 
             <Footer></Footer>
           </div>
-        </HashRouter>
       </Context.Provider>
     );
   }

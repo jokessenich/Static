@@ -24,7 +24,6 @@ export default class AddMalady extends React.Component{
     handleSubmit=(e)=>{
         e.preventDefault()
         const {name, description, symptoms} = this.state
-        debugger;
         fetch(`${config.API_ENDPOINT}/maladies/${localStorage.getItem('token')}`,{
             method: 'POST',
             headers:{

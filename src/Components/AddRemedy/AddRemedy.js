@@ -50,7 +50,6 @@ handleSubmit = (e) => {
     const { malady, remedy, reference, description } = this.state
     const maladyResults = this.context.maladies.filter(mal => mal.malady_name.toLowerCase() === malady.toLowerCase())
     let newDescription=JSON.stringify(description)
-    debugger;
     fetch(`${config.API_ENDPOINT}/remedies/${localStorage.getItem('token')}`, {
         method: 'POST',
         headers: {
