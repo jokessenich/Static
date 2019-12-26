@@ -65,22 +65,20 @@ export default class Home extends React.Component {
                     <h1 className = "home-hero">Alternative Remedies for the People.{<br />} <span className = "subheader-home">By the People.</span></h1>
                     
                     <form onSubmit={this.handleSearch} id = 'home-search-form'>
-
-                        <label htmlFor='search-term' id = "home-search-label">Find a Condition:</label>
                         <input type='text' 
                                 id='home-search-term' 
-                                placeholder = "Find a condition. For example: cold"
+                                placeholder = "Find a condition. e.g. 'Flu'"
                                 onChange = {this.handleChange}>
                                 </input>
 
-                                {autofill}
 
                         <button
                             type='submit'
                             id = 'search-button'
                             ></button>
-
                     </form>
+                    {autofill}
+
                 </section>
 
                  <section className = "browse-maladies">

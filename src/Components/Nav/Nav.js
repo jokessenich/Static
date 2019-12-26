@@ -16,6 +16,10 @@ export default class Nav extends React.Component {
 
     static contextType = Context
     
+    componentDidMount(){
+        debugger;
+    }
+
     handleLogout=()=>{
         this.context.handleLogout()
     }
@@ -30,6 +34,18 @@ export default class Nav extends React.Component {
         const menuProp = this.state.isOpen
         const navBar = this.context.isLoggedIn ?
             <div className='nav-bar'>
+                <ul className = 'screen-nav-bar'>
+                    <li><Link to='/login' className="nav-bar-link">Logout</Link></li>
+
+                    <li><Link to='/' className="nav-bar-link">Home</Link></li>
+
+                    <li><Link to='/maladylist' className="nav-bar-link">Maladies</Link></li>
+
+                    <li><Link to='/addremedy' className="nav-bar-link">Add Remedy</Link></li>
+
+                    <li><Link to='/addmalady' className="nav-bar-link">Add Malady</Link></li>
+                </ul>
+
                 <Menu isOpen = {{menuProp}}>
                 
                     <Link to='/login' className="nav-link" onClick = {this.handleLogout}>Logout</Link>
@@ -48,6 +64,19 @@ export default class Nav extends React.Component {
 
             </div>:
             <div className='nav-bar'>
+
+                <ul className = 'screen-nav-bar'>
+
+                    <li><Link to='/' className="nav-bar-link" >Home</Link></li>
+
+                    <li><Link to='/login' className="nav-bar-link">Login</Link></li>
+
+                    <li><Link to='/register' className="nav-bar-link">Register</Link></li>
+
+                    <li><Link to='/maladylist' className="nav-bar-link">Maladies</Link></li>
+
+                </ul>
+
             <Menu isOpen = {{menuProp}}>
 
                 <Link to='/login' className="nav-link" onClick = {this.closeMenu}>Login</Link>
@@ -56,8 +85,6 @@ export default class Nav extends React.Component {
 
                 <Link to='/maladylist' className="nav-link" onClick = {this.closeMenu}>Maladies</Link>
 
-
-            
         </Menu>
         
         </div>

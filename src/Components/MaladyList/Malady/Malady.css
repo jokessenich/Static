@@ -1,18 +1,42 @@
 .malady-subsection{
     margin: 3%;
     padding: 5%;
-    border: 1px solid;
-    border-radius: 5px;
 }
 
-h1{
+.malady-page-head>h1{
     text-align: center;
+    margin:0;
+    padding-top:50px;
+    color:white;
 }
 
-.remedy-section{
-    margin: 5%;
-    padding: 5%;
-    border: 1px solid;
-    border-radius: 5px;
+.malady-page-head>p{
+    color: white;
+    padding-left:30%;
+    background-color: rgba(0,0,0,.5);
 }
 
+
+
+.malady-page-head{
+    background-image: url('https://images.pexels.com/photos/461428/pexels-photo-461428.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    background-size:cover;
+    height: 50vh;
+    color: white;
+}
+
+.malady-page-head>h2{
+    position: absolute;
+    top: 41vh;
+}
+
+.remedies-header{
+    background-image: url('https://images.pexels.com/photos/1715902/pexels-photo-1715902.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-size: cover;
+    height: 40vh;
+    color: white;
+}
+
+.malady-subsection>p{
+    font-size: 16pt;
+}

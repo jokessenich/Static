@@ -74,7 +74,6 @@ class App extends React.Component {
 
             <Main></Main>
 
-            <Footer></Footer>
           </div>
       </Context.Provider>
     );

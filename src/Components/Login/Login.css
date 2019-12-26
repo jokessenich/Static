@@ -1,0 +1,59 @@
+.login-page-header{
+    background-image: url('https://images.pexels.com/photos/1793035/pexels-photo-1793035.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-size: cover;
+    height: 40vh;
+    color: white;
+    
+
+}
+
+.background-box>h1{
+    padding-top:50%
+}
+
+.login-form{
+    margin-top: 50px;
+    text-align: center;
+}
+.login-body{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16pt;
+}
+
+.login-form>input{
+    height: 40px;
+    border-radius: 5px;
+    border: .35px solid;
+    margin-bottom: 20px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 12pt;
+    padding: 5px;
+}
+
+.background-box{
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.356);
+    background-size: cover;
+    
+}
+
+@media only screen and (min-width: 600px) {
+
+    .background-box>h1{
+        padding-top:30%;
+        padding-left: 2%;
+        font-size: 30pt;
+    }
+}
+
+.login-form>input{
+    width: 200px;
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .background-box>h1{
+        padding-top:20%;
+
+    }
+}

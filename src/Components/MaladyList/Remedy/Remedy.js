@@ -162,6 +162,7 @@ export default class Remedy extends React.Component{
     
                         <div className="remedy-section">
                             <h2>{this.props.rem.remedy_name}</h2>
+
                             <p>{this.props.rem.remedy_description}</p>
                             {likeIt()}
                             <p>Likes: {this.state.likes}</p>

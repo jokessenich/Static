@@ -65,9 +65,9 @@ export default class Register extends React.Component {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: `{"username": "${this.state.username}",
+            body: `{"username": "${this.state.username.toLowerCase()}",
                         "userpassword": "${this.state.password}",
-                        "email": "${this.state.email}"
+                        "email": "${this.state.email.toLowerCase()}"
                     }`
         })
 

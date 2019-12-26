@@ -14,3 +14,17 @@
     background-color: papayawhip;
     cursor: pointer;
 }
+
+.add-page-header{
+    background-image: url('https://images.pexels.com/photos/544492/pexels-photo-544492.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-size: cover;
+    height: 40vh;
+    color: white;
+    text-align: center;
+}
+
+h1{
+    margin:0;
+    padding-top: 40px;
+
+}

@@ -2,7 +2,9 @@
     text-align: center;
     display: flex column;
     justify-content: space-between;
-
+    background-image: url("https://images.pexels.com/photos/932577/pexels-photo-932577.jpeg?cs=srgb&dl=aromatherapy-aromatic-bottle-932577.jpg&fm=jpg");
+    background-size: cover;
+    height: 100vh;
 }
 
 .home-browse{
@@ -49,14 +51,18 @@ button{
 
 #search-button{
     
-    background-image: url('https://www.pinclipart.com/picdir/middle/493-4936787_free-png-search-icon-magnifying-glass-icon-png.png');
-    background-size: cover;
-    height: 40px;
-    width: 40px;
-    margin-left: 0;
-    border-radius: 10px;
+    background-image: url('https://cdn.icon-icons.com/icons2/1509/PNG/512/systemsearch_104123.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 45px;
+    width: 45px;
+    margin-left: -55px;
+    border-radius: 5px;
     background-color: white;
     border: none;
+    margin-top: 11px;
+    margin-right: 14px
 }
 
 .home-hero{
@@ -68,6 +74,7 @@ button{
     margin-right:100px;
     margin-top: 0;
     line-height: 1.1;
+    margin-bottom: 50px;
 }
 
 #home-search-label{
@@ -77,22 +84,69 @@ button{
 }
 
 #home-search-form{
-    margin-top: 60px;
-    width: 85%;
+    margin-top: 0px;
+    width: 80%;
     border-radius: 10px;
     margin-right: auto;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
 #home-search-term{
     border-radius: 5px;
     font-size: 12pt;
     margin: 10px;
-    width:60%;
+    width:100%;
     padding: 15px;
-    margin-right: 0px;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .subheader-home{
     color: white;
+}
+
+@media only screen and (min-width: 600px) {
+
+#home-search-term{
+    width: 70%;
+    
+}
+
+#search-button{
+    right: 20%;
+    position: absolute;
+    top: 273px;
+
+}
+
+.home-browse{
+    width: 60%;
+}
+
+}
+
+@media only screen and (min-width: 808px) {
+
+    #search-button{
+        top: 330px;
+        right:28%
+    }
+
+    .home-hero{
+    margin-bottom: 150px;
+}
+
+.home-browse{
+    width: 44%;
+}
+
+#home-search-term{
+    width: 50%;
+    
+}
+
 }

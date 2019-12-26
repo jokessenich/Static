@@ -1,0 +1,9 @@
+.add-malady-page-header{
+    background-image: url('https://images.pexels.com/photos/1327881/pexels-photo-1327881.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-size: cover;
+    height: 50vh;
+    color: white;
+}
+.add-malady-page-header>h1{
+    padding-top: 250px;
+}

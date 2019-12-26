@@ -1,10 +1,13 @@
 .nav-bar{
     width: 100%;
-    height: 50px;
+    height: 0px;
     text-align: center;
     background: transparent;
 }
 
+.screen-nav-bar{
+  display: none;
+} 
 
 .nav-link{
     color: white;
@@ -25,16 +28,16 @@
     display: block;
     position: absolute;
     right: 20px;
-    top: 2px;;
+    top: 2px;
     color: white;
   }
 
   .bm-burger-button {
     position: fixed;
-    width: 36px;
-    height: 30px;
-    right: 36px;
-    top: 36px;
+    width: 25px;
+    height: 20px;
+    right: 25px;
+    top: 25px;
   }
 
   .bm-burger-bars {
@@ -44,7 +47,7 @@
   a.bm-item.nav-link{
       padding-top: 30px;
       font-size: 20pt;
-      height: 80px;
+      height: 60px;
       font-style: bolder;
   }
 
@@ -71,7 +74,41 @@
   }
 
   .bm-cross-button {
+    position: absolute;
     height: 50px;
     width: 50px;
     background-size: cover;
+    right:100px;
   }
+
+  @media only screen and (min-width: 600px) {
+   
+    .bm-burger-button {
+      display: none;
+  }
+
+  .screen-nav-bar{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    margin-top: 0;
+    padding-top: 10px;
+    
+  } 
+
+  .nav-bar-link{
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16pt;
+    margin-right: 15px;;
+}
+
+  .nav-bar-link:hover{
+    background-color: black;
+  }
+  .home-hero{
+    padding-top: 90px;
+  }
+}

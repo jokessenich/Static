@@ -2,6 +2,7 @@ import React from 'react'
 import './AddRemedy.css'
 import config from '../../config'
 import Context from '../../Context'
+import {Link} from 'react-router-dom'
 
 export default class AddRemedy extends React.Component {
     constructor(props) {
@@ -31,7 +32,7 @@ export default class AddRemedy extends React.Component {
                 options: []
             })
         }
-        console.log(e.currentTarget.value)
+        console.log(e.currentTarget.value, this.state.options)
     }
 
     suggestMalady = (frag) => {
@@ -76,13 +77,14 @@ handleFill=(name)=>{
 }
 
 render(){
-    const autofill = this.state.options.map(mal=><p className = "autofill-rem" onClick = {()=>this.handleFill(mal.malady_name)} key = {mal.id} to = {`/malady/${mal.id}`}>{mal.malady_name}</p>)
+    let autofill = this.state.options==[] ? <Link to = '/addMalady' className = "autofill-rem">No Matches. Click to Add</Link>: this.state.options.map(mal=><p className = "autofill-rem" onClick = {()=>this.handleFill(mal.malady_name)} key = {mal.id} to = {`/malady/${mal.id}`}>{mal.malady_name}</p>)
 
     return (
 
         <div className='add-page'>
+            <header className= "add-page-header">
             <h1>Add Remedy</h1>
-
+            </header>
             <form id = "new-remedy-form"  onSubmit={this.handleSubmit}>
                 <label htmlFor='malady'>Malady</label>
                 <input
