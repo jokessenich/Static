@@ -1,11 +1,9 @@
 .browse-maladies-link{
     display: block;
     text-decoration: none;
-    background-color: rgb(170, 154, 127);
     color: black;
-    margin-bottom: 5px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 2px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -13,13 +11,14 @@
 }
 
 .browse-maladies-link:hover{
-    background-color: rgb(123, 95, 150);
+    background-color: rgba(175, 144, 204, 0.623);
 }
 
 .remedies-counter{
-    right: 60px;
+    right: 15%;
+    padding: 5px;
     position: absolute;
-    background-color: rgba(134, 140, 158, 0.63);
+    background-color: rgba(197, 201, 214, 0.63);
     border-radius: 5px;
     width: 90px;
     text-align: center;
@@ -31,12 +30,28 @@
     height: 40vh;
 }
 
-.malady-head>h1{
+.border-box{
+    background-color: rgb(0,0,0,.2);
+    height: 100%;
+}
+
+.border-box>h1{
+    position: absolute;
     margin:0;
-    padding-top: 55%;
+    top: 28vh;
     color: white;
+    font-size: 32px;
+    margin-left: 2%;
+
 }
 
 .browse-maladies-section{
-    background-color: rgba(170, 124, 55, 0.849);
+    font-family: 'Roboto Condensed', sans-serif;
 }
+
+@media only screen and (min-width: 600px) {
+    .border-box>h1{
+        font-size: 30pt;
+    }
+}
+

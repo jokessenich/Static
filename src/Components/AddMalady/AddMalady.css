@@ -1,9 +1,43 @@
 .add-malady-page-header{
     background-image: url('https://images.pexels.com/photos/1327881/pexels-photo-1327881.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
     background-size: cover;
-    height: 50vh;
+    height: 40vh;
     color: white;
 }
+
 .add-malady-page-header>h1{
-    padding-top: 250px;
+    position: absolute;
+    margin:0;
+    top: 28vh;  
+    padding-left: 2%;  
+}
+
+.add-mal-form{
+    margin-top: 50px;
+    text-align: center;
+}
+.add-mal-body{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16pt;
+}
+
+.add-mal-form>input{
+    margin-top: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12pt;
+    padding: 5px;
+}
+
+.add-mal-form>textarea{
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12pt;
+    padding: 5px;
 }

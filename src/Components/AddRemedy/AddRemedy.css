@@ -6,7 +6,8 @@
     text-decoration: none;
     border-radius: 5px;
     padding: 3px;
-    margin-left: 56px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1px;
 }
 
@@ -23,8 +24,40 @@
     text-align: center;
 }
 
-h1{
+.add-page-header>h1{
+    position: absolute;
     margin:0;
-    padding-top: 40px;
+    top: 28vh;  
+    padding-left: 2%;  
+}
 
+#new-remedy-form{
+    margin-top: 50px;
+    text-align: center;
+}
+#new-remedy-form{
+
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16pt;
+}
+
+#new-remedy-form>input{
+    margin-top: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12pt;
+    padding: 5px;
+}
+
+#new-remedy-form>textarea{
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12pt;
+    padding: 5px;
 }

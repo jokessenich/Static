@@ -69,7 +69,7 @@ export default class Login extends React.Component {
                     </div>
                 </header>
 
-                <body className="login-body">
+                <section className="login-body">
                     <form className="login-form" onSubmit={this.handleLogin}>
                         <label htmlFor='Username'>Username/Email <br /></label>
                         <input
@@ -88,7 +88,7 @@ export default class Login extends React.Component {
                     </form>
 
                     <p>Not a member? <Link to='/register' className="register-link">Register</Link></p>
-                </body>
+                </section>
             </div>
 
         )

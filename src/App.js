@@ -28,8 +28,8 @@ class App extends React.Component {
       fetch(`${config.API_ENDPOINT}/users/verify/${localStorage.getItem('token')}`)
     ])
 
-      .then(([remedyRes, maladyRes, likesRes, userIdres]) => {
-        return Promise.all([remedyRes.json(), maladyRes.json(), likesRes.json(), userIdres.json()])
+      .then(([remedyRes, maladyRes, likesRes, userIdRes]) => {
+        return Promise.all([remedyRes.json(), maladyRes.json(), likesRes.json(), userIdRes.json()])
       })
 
       .then(([remedies, maladies, likes, isLoggedIn]) => {
@@ -74,6 +74,7 @@ class App extends React.Component {
 
             <Main></Main>
 
+            <Footer></Footer>
           </div>
       </Context.Provider>
     );

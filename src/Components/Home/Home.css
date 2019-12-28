@@ -119,8 +119,12 @@ button{
 #search-button{
     right: 20%;
     position: absolute;
-    top: 273px;
+    top: 402px;
 
+}
+
+.home-hero{
+    margin-bottom: 250px;
 }
 
 .home-browse{
@@ -129,16 +133,23 @@ button{
 
 }
 
+@media only screen and (min-width: 600px) {
+
+    #search-button{
+
+        top: 472px;
+    
+    }
+}
+
 @media only screen and (min-width: 808px) {
 
     #search-button{
-        top: 330px;
+        top: 430px;
         right:28%
     }
 
-    .home-hero{
-    margin-bottom: 150px;
-}
+
 
 .home-browse{
     width: 44%;

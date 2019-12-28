@@ -93,11 +93,13 @@ export default class Register extends React.Component {
         return (
 
             <div className='register-page'>
+                <header className = "register-header">
                 <h1>Register</h1>
+                </header>
+                <section className = "register-body">
+                <form className = "register-form" onSubmit ={this.handleSubmit}>
 
-                <form onSubmit ={this.handleSubmit}>
-
-                    <label htmlFor='Email' >Email</label>
+                    <label htmlFor='Email' >Email</label><br />
                     <input
                         type='text'
                         id='email'
@@ -105,21 +107,21 @@ export default class Register extends React.Component {
                         onChange={this.onChange}></input><br />
 
 
-                    <label htmlFor='username' >Username</label>
+                    <label htmlFor='username' >Username</label><br />
                     <input
                         type='text'
                         id='username'
                         name='username'
                         onChange={this.onChange}></input><br />
 
-                    <label htmlFor='Password' >Password</label>
+                    <label htmlFor='Password' >Password</label><br />
                     <input
                         type='password'
                         id='password'
                         name='password'
                         onChange={this.onChange}></input><br />
 
-                    <label htmlFor='repeatPassword' >Repeat Password</label>
+                    <label htmlFor='repeatPassword' >Repeat Password</label><br />
                     <input
                         type='password'
                         id='repeatPassword'
@@ -128,8 +130,9 @@ export default class Register extends React.Component {
 
                         <p>{this.state.error}</p>
 
-                    <button type='submit'>Register</button>
+                    <button className = "register-button" type='submit'>Register</button>
                 </form>            
+                </section>
             </div>
         )}
 }

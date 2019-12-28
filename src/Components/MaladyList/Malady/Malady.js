@@ -37,16 +37,15 @@ export default class Malady extends React.Component {
                                             <header className="malady-page-head">
                                                 <h1>{malady.malady_name}</h1>
                                                 <p>{malady.malady_description}</p>
-                                                <h2 onClick={this.showSym}>Symptoms</h2>
-
                                             </header>
                                             <section className="malady-subsection">
+                                            <h2 className = "symptoms-label"onClick={this.showSym}>Symptoms</h2>
                                             <p>{this.state.showSym && malady.malady_symptoms}</p>
 
                                             </section>
                                         </div>)
-
-        const remedyPage = remedy.map(remedy => <Remedy rem={remedy} key={remedy.id}></Remedy>)
+        console.log(remedy)
+        const remedyPage = remedy.length!==0?remedy.map(remedy => <Remedy rem={remedy} key={remedy.id}></Remedy>):<p>There are no remedies for this condition yet.</p>
 
         return (
             <div className='malady-page'>
@@ -57,9 +56,12 @@ export default class Malady extends React.Component {
                 <section className = "remedies-header">
                 <h1>Remedies</h1>
                 </section>
-                {this.state.showForm && <AddRemedy></AddRemedy>}
-                <h2 onClick={this.updateForm}>Click to Add Remedy</h2>
+
+                <section className = "remedy-page">
+                {this.state.showForm && <AddRemedy noHeader = {true}></AddRemedy>}
+                <p className = "click-to-add" onClick={this.updateForm}>Click to {this.state.showForm? "collapse form": "add remedy"}</p>
                 {remedyPage}
+                </section>
             </div>
         )
     }

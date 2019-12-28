@@ -42,37 +42,48 @@ export default class AddMalady extends React.Component {
         return (
 
             <div className='add-malady-page'>
+
                 <header className="add-malady-page-header">
                     <h1>Add Malady</h1>
                 </header>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='name'>Malady</label>
-                    <input
-                        type='list'
-                        id='name'
-                        onChange={this.handleChange}>
-                    </input><br />
 
-                    <label htmlFor='symptoms'>Symptoms</label>
-                    <input
-                        type='text'
-                        id="symptoms"
-                        onChange={this.handleChange}>
-                    </input><br />
+                <section className="add-mal-body">
+                    <form className="add-mal-form" onSubmit={this.handleSubmit}>
+                        <label htmlFor='name'>Malady Name</label><br />
+                        <input
+                            type='list'
+                            id='name'
+                            onChange={this.handleChange}
+                            required>
+                        </input><br />
 
-                    <label htmlFor='description'>Description</label>
-                    <input
-                        type='text'
-                        id="description"
-                        onChange={this.handleChange}
-                    ></input>
+                        <label htmlFor='symptoms'>Symptoms</label><br />
+                        <textarea
+                            type='text'
+                            id="symptoms"
+                            cols="30"
+                            rows="10"
+                            onChange={this.handleChange}
+                            required>
+                        </textarea><br />
 
-                    <button
-                        type="submit">
-                        Add
+                        <label htmlFor='description'>Description</label><br />
+                        <textarea
+                            type='text'
+                            id="description"
+                            cols="30"
+                            rows="10"
+                            onChange={this.handleChange}
+                            required>
+                        </textarea><br />
+
+                        <button
+                            type="submit"
+                            className = "login-button">
+                            Add
                     </button>
-                </form>
-
+                    </form>
+                </section>
             </div>
         )
     }

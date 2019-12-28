@@ -1,6 +1,8 @@
 .malady-subsection{
     margin: 3%;
     padding: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
+
 }
 
 .malady-page-head>h1{
@@ -8,12 +10,15 @@
     margin:0;
     padding-top:50px;
     color:white;
+
 }
 
 .malady-page-head>p{
     color: white;
-    padding-left:30%;
+    padding-left:25%;
     background-color: rgba(0,0,0,.5);
+    font-family: 'Roboto Condensed', sans-serif;
+
 }
 
 
@@ -27,7 +32,7 @@
 
 .malady-page-head>h2{
     position: absolute;
-    top: 41vh;
+    top: 46vh;
 }
 
 .remedies-header{
@@ -37,6 +42,29 @@
     color: white;
 }
 
+.remedies-header>h1{
+    text-align: center;
+    padding-top: 30vh;
+    font-size: 24pt;
+}
+
 .malady-subsection>p{
     font-size: 16pt;
+}
+
+.symptoms-label{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+.remedy-page{
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+.click-to-add{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

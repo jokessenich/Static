@@ -1,0 +1,66 @@
+.register-header{
+    background-image: url('https://images.pexels.com/photos/1634502/pexels-photo-1634502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    height: 40vh;
+    color: white;
+}
+
+.register-header>h1{
+    position: absolute;
+    margin:0;
+    top: 28vh;    
+}
+
+.register-form{
+    margin-top: 50px;
+    text-align: center;
+}
+.register-body{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16pt;
+}
+
+.register-form>input{
+    margin-top: 3px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12pt;
+    padding: 5px;
+}
+
+.background-box{
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.356);
+    background-size: cover;
+    
+}
+
+.register-button{
+    height:30px;
+    width:60px;
+    border-radius: 5px;
+    border: .5px solid black;
+}
+
+.register-button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+    .register-header>h1{
+        padding-left: 2%;
+        font-size: 30pt;
+    }
+}
+
+.register-form>input{
+    width: 200px;
+}
+
