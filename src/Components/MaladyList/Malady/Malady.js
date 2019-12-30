@@ -17,18 +17,17 @@ export default class Malady extends React.Component {
     static contextType = Context
 
     updateForm = () => {
-        console.log('clicked')
         this.setState({
             showForm: !this.state.showForm
         })
     }
 
     showSym = () => {
-        console.log('clicked')
         this.setState({
             showSym: !this.state.showSym
         })
     }
+
 
     render() {
         const remedy = this.context.remedies.filter(remedy => remedy.remedy_malady === parseInt(this.props.match.params.id))
@@ -48,7 +47,7 @@ export default class Malady extends React.Component {
                                                     </section>
                                                     
                                                 </div>)
-        console.log(remedy)
+
         const remedyPage = remedy.length !== 0 ? remedy.map(remedy => <Remedy rem={remedy} key={remedy.id}></Remedy>) : <p>There are no remedies for this condition yet.</p>
 
         return (

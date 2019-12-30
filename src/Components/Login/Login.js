@@ -83,6 +83,9 @@ export default class Login extends React.Component {
 
                         <button className="login-button" type="submit">Login</button>
                         {this.state.error}
+                        <p>Demo Username: demo</p>
+                        <p>Demo Password: 121212</p>
+
                     </form>
 
                     <p>Not a member? <Link to='/register' className="register-link">Register</Link></p>

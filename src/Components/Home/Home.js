@@ -16,31 +16,38 @@ export default class Home extends React.Component {
     static contextType = Context
 
     handleSearch=(e)=> {
+
         e.preventDefault()
+
         const searchTerm = e.currentTarget['home-search-term'].value.toLowerCase()
-        console.log(searchTerm)
         const maladyArr = this.context.maladies.filter(mal=> mal.malady_name.toLowerCase() === searchTerm)
+        
         if(!maladyArr[0]){
             this.props.history.push(`maladynotfound/${searchTerm}`)
             return
         }
+
         const malId=maladyArr[0].id
         this.props.history.push(`malady/${malId}`)
     }
 
     handleChange=(e)=>{
+
         e.preventDefault()
+
         this.setState({
             searchTerm: e.currentTarget.value
         })
+
         if(e.currentTarget.value.length>1){
-        this.suggestMalady(e.currentTarget.value)
-        }
+            this.suggestMalady(e.currentTarget.value)
+            }
+
         if(e.currentTarget.value.length<2){
             this.setState({ 
                 options: []
-            })        }
-        console.log(this.state.searchTerm)
+            })        
+        }
     }
 
     suggestMalady=(frag)=>{
@@ -77,6 +84,7 @@ export default class Home extends React.Component {
                             id = 'search-button'
                             ></button>
                     </form>
+
                     {autofill}
 
                 </section>
@@ -91,6 +99,7 @@ export default class Home extends React.Component {
                         Users can login for the added functionality of creating maladies or remedies, or rating the remedies.
                     </p>
                 </section>
+                
             </div>
         )
     }

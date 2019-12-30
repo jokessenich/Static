@@ -100,7 +100,7 @@ export default class Nav extends React.Component {
         </Menu>
         
         </div>
-        console.log(menuProp)
+        
         return (
             <div>
             {navBar}

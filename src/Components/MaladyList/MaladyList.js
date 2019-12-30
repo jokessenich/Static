@@ -5,9 +5,7 @@ import Context from '../../Context'
 import { getNumOfRemedies } from '../../helperFunctions'
 
 export default class MaladyList extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+
     static contextType = Context;
 
 

@@ -21,7 +21,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mounting app')
     Promise.all([
       fetch(`${config.API_ENDPOINT}/remedies`),
       fetch(`${config.API_ENDPOINT}/maladies`),
