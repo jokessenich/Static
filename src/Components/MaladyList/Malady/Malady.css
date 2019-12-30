@@ -5,7 +5,7 @@
 
 }
 
-.malady-page-head>h1{
+.mal-head-box>h1{
     text-align: center;
     margin:0;
     padding-top:50px;
@@ -13,7 +13,7 @@
 
 }
 
-.malady-page-head>p{
+.mal-head-box>p{
     color: white;
     padding-left:25%;
     background-color: rgba(0,0,0,.5);
@@ -21,16 +21,20 @@
 
 }
 
-
+.mal-head-box{
+    background-color: rgba(0,0,0,.25);
+    height: 100%;
+}
 
 .malady-page-head{
     background-image: url('https://images.pexels.com/photos/461428/pexels-photo-461428.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
     background-size:cover;
     height: 50vh;
     color: white;
+
 }
 
-.malady-page-head>h2{
+.mal-head-box>h2{
     position: absolute;
     top: 46vh;
 }

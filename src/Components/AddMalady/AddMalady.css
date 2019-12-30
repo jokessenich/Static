@@ -8,7 +8,7 @@
 .add-malady-page-header>h1{
     position: absolute;
     margin:0;
-    top: 28vh;  
+    top: 35vh;  
     padding-left: 2%;  
 }
 
@@ -40,4 +40,9 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 12pt;
     padding: 5px;
+}
+
+.error-message{
+    color: red;
+    text-align: center;
 }

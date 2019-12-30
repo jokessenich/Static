@@ -12,7 +12,8 @@ export default class AddRemedy extends React.Component {
             remedy: "",
             reference: "",
             description: "",
-            options: []
+            options: [],
+            error: ""
         }
     }
     static contextType = Context
@@ -23,11 +24,11 @@ export default class AddRemedy extends React.Component {
         })
 
         if (e.currentTarget.id === "malady") {
-            if (e.currentTarget.value.length > 1) {
+            if (e.currentTarget.value.length > 0) {
                 this.suggestMalady(e.currentTarget.value)
             }
 
-            if (e.currentTarget.value.length < 2) {
+            if (e.currentTarget.value.length < 1) {
                 this.setState({
                     options: []
                 })
@@ -55,8 +56,40 @@ export default class AddRemedy extends React.Component {
         e.preventDefault()
         const { malady, remedy, reference, description } = this.state
         const maladyResults = this.context.maladies.filter(mal => mal.malady_name.toLowerCase() === malady.toLowerCase())
+        
+        if(maladyResults.length===0){
+            this.setState({
+                error: `No maladies found with a name of ${malady}.`
+            })
+            window.scrollTo(0, 0)
+            return
+        }
+
+        if(remedy.length===0){
+            this.setState({
+                error: `Remedy must have a name.`
+            })
+            window.scrollTo(0, 0)
+            return
+        }
+
         let newDescription = JSON.stringify(description)
-        console.log(malady, remedy, reference, newDescription)
+
+        if(newDescription.length <10){
+            this.setState({
+                error: `Description must be at least 10 words.`
+            })
+            window.scrollTo(0, 0)
+            return;
+        }
+
+        if(reference.length ===0){
+            this.setState({
+                error: `Reference must be included.`
+            })
+            window.scrollTo(0, 0)
+            return;
+        }
 
         fetch(`${config.API_ENDPOINT}/remedies/add/${localStorage.getItem('token')}`, {
             method: 'POST',
@@ -69,30 +102,45 @@ export default class AddRemedy extends React.Component {
                     "remedy_reference": "${reference}"
                 }`
         })
-            .then(res => res.json())
+            .then(res => {
+                if(!res.ok){
+                    return res.json()
+                    .then(error=>{
+                        throw error
+                    })
+                }
+                    return res.json()
+            })
             .then(data => {
-                debugger;
                 window.location.reload()
             })
+
+            .catch(error=> this.props.history.push('/ErrorPage'))
     }
 
     handleFill = (name) => {
         document.getElementById('malady').value = name
         this.setState({
             malady: name,
-            options: []
         })
     }
 
     render() {
-        let autofill = this.state.options == [] ? <Link to='/addMalady' className="autofill-rem">No Matches. Click to Add</Link> : this.state.options.map(mal => <p className="autofill-rem" onClick={() => this.handleFill(mal.malady_name)} key={mal.id} to={`/malady/${mal.id}`}>{mal.malady_name}</p>)
 
-        let header = this.props.noHeader ? <h1>Add Remedy</h1> :
-            <header className="add-page-header">
-                <h1>Add Remedy</h1>
-            </header>
+        let autofill = this.state.options.length === 0 && 
+                        this.state.malady.length!==0 ? <Link to='/addMalady' className="autofill-rem">No Matches. Click to Add</Link> : this.state.options.map(mal => <p className="autofill-rem" onClick={() => this.handleFill(mal.malady_name)} key={mal.id} to={`/malady/${mal.id}`}>{mal.malady_name}</p>)
+
+        let header = this.props.noHeader ? <header>
+                                                <h1>Add Remedy</h1>
+                                                <p>{this.state.error}</p>
+                                            </header>
+                                            :
+                                            <header className="add-page-header">
+                                                <h1>Add Remedy</h1>
+                                                <p>{this.state.error}</p>
+                                            </header>
         return (
-
+            
             <div className='add-page'>
                 {header}
                 <form id="new-remedy-form" onSubmit={this.handleSubmit}>

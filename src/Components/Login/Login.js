@@ -35,7 +35,6 @@ export default class Login extends React.Component {
                 if (!res.ok) {
                     return res.json()
                         .then(error => {
-                            console.log(error)
                             throw error
                         })
                 }
@@ -44,7 +43,6 @@ export default class Login extends React.Component {
 
             .then(token => {
                 localStorage.setItem('token', token)
-                console.log(token)
             })
 
             .then(res => {

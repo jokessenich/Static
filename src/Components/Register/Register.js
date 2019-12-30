@@ -82,9 +82,7 @@ export default class Register extends React.Component {
         .then(res=> this.props.history.push('/login'))
 
         .catch(error=>{
-            this.setState({
-                error: error.message
-            })
+            this.props.history.push('/ErrorPage')
         })
     }
     
@@ -130,7 +128,7 @@ export default class Register extends React.Component {
 
                         <p>{this.state.error}</p>
 
-                    <button className = "register-button" type='submit'>Register</button>
+                    <button className = "login-button" type='submit'>Register</button>
                 </form>            
                 </section>
             </div>

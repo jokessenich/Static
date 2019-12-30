@@ -108,13 +108,20 @@ export default class Remedy extends React.Component {
             })
 
                 .then(res => {
-                    console.log(res)
+                    if(!res.ok){
+                        return res.json()
+                        .then(error=>{
+                            throw error
+                        })
+                    }
                     this.setState({
                         liked: newStatus
                     })
                 })
 
                 .then(res => window.location.reload())
+
+                .catch(error=> this.props.history.push('/ErrorPage'))
         }
     }
 
@@ -128,14 +135,17 @@ export default class Remedy extends React.Component {
                     className="like-button"
                     onClick={() => this.handleLike(true)}
                     className="like-button"
-                    height="40px">
+                    height="40px"
+                    alt="thumbs up icon">
                 </img>
 
                 <span className="likes-count">{this.state.dislikes}</span>
                 <img src="https://img.icons8.com/officel/40/000000/poor-quality.png" 
                     className="like-button"
                     onClick={() => this.handleLike(false)}
-                    height="40px"></img>
+                    height="40px"
+                    alt="thumbs down icon">   
+                    </img>
             </div>
         }
 
@@ -145,14 +155,17 @@ export default class Remedy extends React.Component {
                 <img src="https://img.icons8.com/office/40/000000/good-quality.png"
                     onClick={() => this.handleLike(null)}
                     className="liked"
-                    height="40px">
+                    height="40px"
+                    alt="thumbs up icon">
                 </img>
 
                 <span className="likes-count">{this.state.dislikes}</span>
                 <img src="https://img.icons8.com/officel/40/000000/poor-quality.png" 
                     className="like-button"
                     onClick={() => this.handleLike(false)}
-                    height="40px"></img>
+                    height="40px"
+                    alt="thumbs down icon">                        
+                    </img>
             </div>
         }
 
@@ -163,14 +176,17 @@ export default class Remedy extends React.Component {
                     className="like-button"
                     onClick={() => this.handleLike(true)}
                     className="like-button"
-                    height="40px">
+                    height="40px"
+                    alt="thumbs up icon">
                 </img>
 
                 <span className="likes-count">{this.state.dislikes}</span>
                 <img src="https://img.icons8.com/officel/40/000000/poor-quality.png" 
                     className="disliked"
                     onClick={() => this.handleLike(null)}
-                    height="40px"></img>
+                    height="40px"
+                    alt="thumbs down icon">
+                    </img>
 
             </div>
         }

@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import ErrorPage from './ErrorPage';
 import { BrowserRouter } from 'react-router-dom'
 
-
-//this is the test case
 it('renders without crashing', () => {
   const div = document.createElement('div');
-
-  ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, div);
-
+  ReactDOM.render(<BrowserRouter><ErrorPage /></BrowserRouter>, div);
   ReactDOM.unmountComponentAtNode(div);
 });

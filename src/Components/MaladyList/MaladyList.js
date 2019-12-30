@@ -7,22 +7,11 @@ import { getNumOfRemedies } from '../../helperFunctions'
 export default class MaladyList extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            maladies: []
-        }
     }
     static contextType = Context;
 
 
-    componentDidMount() {
-        fetch('http://localhost:8001/maladies')
-            .then(res => res.json())
-            .then(data => {
-                this.setState({
-                    maladies: data
-                })
-            })
-    }
+
     render() {
 
         const alphMal = this.context.maladies.sort((a, b) => (a.malady_name > b.malady_name) ? 1 : -1)
@@ -51,7 +40,7 @@ export default class MaladyList extends React.Component {
                 <section className="browse-maladies-section">
                     {allMaladies}
                 </section>
-                
+
             </div>
         )
     }

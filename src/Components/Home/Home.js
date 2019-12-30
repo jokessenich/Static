@@ -84,6 +84,13 @@ export default class Home extends React.Component {
                  <section className = "browse-maladies">
                     <Link to = '/maladylist' className = "home-browse">Browse Conditions</Link>
                 </section>
+
+                <section className="app-explain">
+                    <p>OurHealth is a web app with user generated content that allows users to search for alternative remedies.
+                        Visitors can search any condition in the database to find the natural remedy that suits them.
+                        Users can login for the added functionality of creating maladies or remedies, or rating the remedies.
+                    </p>
+                </section>
             </div>
         )
     }

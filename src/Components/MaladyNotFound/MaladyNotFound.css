@@ -1,0 +1,12 @@
+.not-found{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.not-found>header{
+
+background-color: rgb(0,0,0,.5);
+padding-top: 80px;
+padding-bottom: 20px;
+color: white;
+
+}

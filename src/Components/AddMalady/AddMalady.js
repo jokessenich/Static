@@ -10,6 +10,7 @@ export default class AddMalady extends React.Component {
             name: "",
             description: "",
             symptoms: "",
+            error: ""
         }
     }
     static contextType = Context
@@ -24,6 +25,32 @@ export default class AddMalady extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { name, description, symptoms } = this.state
+
+        if(name.length===0){
+            this.setState({
+                error: `Remedy must have a name.`
+            })
+            window.scrollTo(0, 0)
+            return
+        }
+
+        let newDescription = JSON.stringify(description)
+
+        if(newDescription.length <10){
+            this.setState({
+                error: `Description must be at least 10 words.`
+            })
+            window.scrollTo(0, 0)
+            return;
+        }
+
+        if(symptoms.length ===0){
+            this.setState({
+                error: `Symptoms must be included.`
+            })
+            window.scrollTo(0, 0)
+            return;
+        }
         fetch(`${config.API_ENDPOINT}/maladies/add/${localStorage.getItem('token')}`, {
             method: 'POST',
             headers: {
@@ -48,13 +75,14 @@ export default class AddMalady extends React.Component {
                 </header>
 
                 <section className="add-mal-body">
+                    <p className = 'error-message'>{this.state.error}</p>
                     <form className="add-mal-form" onSubmit={this.handleSubmit}>
                         <label htmlFor='name'>Malady Name</label><br />
                         <input
                             type='list'
                             id='name'
                             onChange={this.handleChange}
-                            required>
+                            >
                         </input><br />
 
                         <label htmlFor='symptoms'>Symptoms</label><br />
@@ -64,7 +92,7 @@ export default class AddMalady extends React.Component {
                             cols="30"
                             rows="10"
                             onChange={this.handleChange}
-                            required>
+                            >
                         </textarea><br />
 
                         <label htmlFor='description'>Description</label><br />
@@ -74,7 +102,7 @@ export default class AddMalady extends React.Component {
                             cols="30"
                             rows="10"
                             onChange={this.handleChange}
-                            required>
+                            >
                         </textarea><br />
 
                         <button

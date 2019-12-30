@@ -9,6 +9,7 @@ import MaladyList from '../MaladyList/MaladyList'
 import Malady from '../MaladyList/Malady/Malady'
 import AddMalady from '../AddMalady/AddMalady.js'
 import MaladyNotFound from '../MaladyNotFound/MaladyNotFound.js'
+import ErrorPage from '../../ErrorPage/ErrorPage.js'
 
 export default class Main extends React.Component{
 
@@ -34,6 +35,8 @@ export default class Main extends React.Component{
             <Route path = '/malady/:id' component = {Malady}></Route>
 
             <Route path = '/maladynotfound/:name' component = {MaladyNotFound}></Route>
+
+            <Route path = '/ErrorPage' component = {ErrorPage}></Route>
 
 
         </Switch>            

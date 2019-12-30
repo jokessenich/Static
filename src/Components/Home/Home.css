@@ -5,6 +5,7 @@
     background-image: url("https://images.pexels.com/photos/932577/pexels-photo-932577.jpeg?cs=srgb&dl=aromatherapy-aromatic-bottle-932577.jpg&fm=jpg");
     background-size: cover;
     height: 100vh;
+    padding-bottom: 50px;
 }
 
 .home-browse{
@@ -65,6 +66,22 @@ button{
     margin-right: 14px
 }
 
+#search-button:hover{
+    cursor: pointer;
+}
+
+.app-explain{
+    margin-top: 50px;
+    text-align: left;
+    width: 60%;
+    margin-left:auto;
+    margin-right: auto;
+    background-color: rgba(183, 197, 224, 0.856);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14pt;
+}
+
 .home-hero{
     padding-top: 20px;
     text-align: left;
@@ -111,6 +128,9 @@ button{
 
 @media only screen and (min-width: 600px) {
 
+    .app-explain{
+        width: 50%
+    }
 #home-search-term{
     width: 70%;
     
@@ -137,6 +157,16 @@ button{
 
     #search-button{
 
+        top: 402px;
+    
+    }
+}
+
+
+@media only screen and (min-width: 680px) {
+
+    #search-button{
+
         top: 472px;
     
     }
@@ -152,7 +182,7 @@ button{
 
 
 .home-browse{
-    width: 44%;
+    width: 42%;
 }
 
 #home-search-term{
@@ -160,4 +190,14 @@ button{
     
 }
 
+.app-explain{
+    width: 40%
+}
+}
+
+@media only screen and (min-width: 1450px) {
+
+    #search-button{
+        right:29%
+    }
 }

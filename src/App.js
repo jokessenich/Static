@@ -16,6 +16,7 @@ class App extends React.Component {
       remedies: [],
       isLoggedIn: false,
       likes: [],
+      error: false
     }
   }
 
@@ -29,12 +30,31 @@ class App extends React.Component {
     ])
 
       .then(([remedyRes, maladyRes, likesRes, userIdRes]) => {
+          if(!remedyRes.ok){
+            return remedyRes.json().then(e => Promise.reject(e));
+          }
+
+          if(!maladyRes.ok){
+            return maladyRes.json().then(e => Promise.reject(e));
+          }
+
+          if(!likesRes.ok){
+            return likesRes.json().then(e => Promise.reject(e));
+          }
+
+
         return Promise.all([remedyRes.json(), maladyRes.json(), likesRes.json(), userIdRes.json()])
       })
 
       .then(([remedies, maladies, likes, isLoggedIn]) => {
         this.setState({ remedies, maladies, likes, isLoggedIn })
        
+      })
+
+      .catch(error=>{
+        this.setState({
+          error: true
+        })
       })
       
       
@@ -67,16 +87,23 @@ class App extends React.Component {
       handleLogout: this.handleLogout
     }
 
-    return (
-      <Context.Provider value={contextVal}>
-          <div className="app">
-            <Nav></Nav>
-
-            <Main></Main>
-
-            <Footer></Footer>
-          </div>
-      </Context.Provider>
+    const appPage = this.state.error? <div>
+  <h1>Something went wrong  :/ {<br />}We are working on a fix :)</h1>
+                                      </div>:
+                                      
+                                      <Context.Provider value={contextVal}>
+                                      <div className="app">
+                                        <Nav></Nav>
+                            
+                                        <Main></Main>
+                            
+                                        <Footer></Footer>
+                                      </div>
+                                  </Context.Provider>
+return (
+      <div>
+        {appPage}
+      </div>
     );
   }
 }

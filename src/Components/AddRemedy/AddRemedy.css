@@ -31,6 +31,14 @@
     padding-left: 2%;  
 }
 
+.add-page-header>p{
+    position: absolute;
+    margin:0;
+    top: 40vh;  
+    padding-left: 2%; 
+    color: red; 
+}
+
 #new-remedy-form{
     margin-top: 50px;
     text-align: center;
