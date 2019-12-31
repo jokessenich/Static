@@ -18,7 +18,7 @@
     padding-left:25%;
     background-color: rgba(0,0,0,.5);
     font-family: 'Roboto Condensed', sans-serif;
-
+    font-size:14pt;
 }
 
 .mal-head-box{
@@ -69,7 +69,29 @@
 }
 
 .click-to-add{
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin:auto;
+    width:200px;
+    margin-top: 50px;
+    padding:15px;
+    border-radius:5px;
+    font-size: 16pt;
+    text-align:center;
+    border: 1px solid;
+}
+
+.click-to-add:hover{
+    background-color: black;
+    color: white;
+    cursor:pointer;
+}
+
+.add-error{
+    color:red;
+    text-align:center;
+    font-size:16pt;
+}
+
+.no-remedies{
+    text-align:center;
+    font-size: 24pt;
 }

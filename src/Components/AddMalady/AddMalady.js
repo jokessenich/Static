@@ -26,13 +26,28 @@ export default class AddMalady extends React.Component {
         e.preventDefault()
         const { name, description, symptoms } = this.state
 
-        if(name.length===0){
+        if(this.context.isLoggedIn===false){
             this.setState({
-                error: `Remedy must have a name.`
+                error: `You must log in to add a Malady.`
             })
-            window.scrollTo(0, 0)
             return
         }
+
+        if(name.length===0){
+            this.setState({
+                error: `Malady must have a name.`
+            })
+            return
+        }
+
+        if(this.context.maladies.filter(malady=>malady.malady_name.toLowerCase() === name.toLowerCase()).length>0){
+            this.setState({
+                error: `Malady must have a unique name.`
+            })
+            return
+        }
+
+        
 
         let newDescription = JSON.stringify(description)
 
@@ -40,7 +55,6 @@ export default class AddMalady extends React.Component {
             this.setState({
                 error: `Description must be at least 10 words.`
             })
-            window.scrollTo(0, 0)
             return;
         }
 
@@ -48,7 +62,6 @@ export default class AddMalady extends React.Component {
             this.setState({
                 error: `Symptoms must be included.`
             })
-            window.scrollTo(0, 0)
             return;
         }
         fetch(`${config.API_ENDPOINT}/maladies/add/${localStorage.getItem('token')}`, {
@@ -62,7 +75,8 @@ export default class AddMalady extends React.Component {
                 }`
         })
             .then(res => res.json())
-            .then(data => window.location.reload())
+            .then(data => {
+                window.location.assign('http://localhost:3000/maladylist')})
     }
 
     render() {

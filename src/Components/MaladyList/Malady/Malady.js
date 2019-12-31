@@ -10,15 +10,20 @@ export default class Malady extends React.Component {
         super(props)
         this.state = {
             showForm: false,
-            showSym: true
+            showSym: true,
+            error: ""
         }
     }
 
     static contextType = Context
 
     updateForm = () => {
+        this.context.isLoggedIn?
         this.setState({
             showForm: !this.state.showForm
+        }):
+        this.setState({
+            error: "Must be logged in to add a remedy"
         })
     }
 
@@ -48,7 +53,14 @@ export default class Malady extends React.Component {
                                                     
                                                 </div>)
 
-        const remedyPage = remedy.length !== 0 ? remedy.map(remedy => <Remedy rem={remedy} key={remedy.id}></Remedy>) : <p>There are no remedies for this condition yet.</p>
+        const remedyPage = remedy.length !== 0 ? remedy.map(remedy => <Remedy 
+                                                                        rem={remedy} 
+                                                                        key={remedy.id}>
+                                                                        </Remedy>) 
+                                                                        :
+                                                                    <p className ="no-remedies">
+                                                                        There are no remedies for this condition yet.
+                                                                        </p>
 
         return (
             <div className='malady-page'>
@@ -63,6 +75,7 @@ export default class Malady extends React.Component {
                 <section className="remedy-page">
                     {this.state.showForm && <AddRemedy noHeader={true}></AddRemedy>}
                     <p className="click-to-add" onClick={this.updateForm}>Click to {this.state.showForm ? "collapse form" : "add remedy"}</p>
+                    <p className="add-error">{this.state.error}</p>
                     {remedyPage}
                 </section>
             </div>

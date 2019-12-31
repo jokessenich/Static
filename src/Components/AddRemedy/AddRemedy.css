@@ -1,3 +1,8 @@
+#new-remedy-form>p{
+    color:red;
+    text-align: center;
+}
+
 .autofill-rem{
     display:block;
     border: .5px solid black;
@@ -28,7 +33,7 @@
     position: absolute;
     margin:0;
     top: 28vh;  
-    padding-left: 2%;  
+    margin-left:2%
 }
 
 .add-page-header>p{
@@ -37,6 +42,11 @@
     top: 40vh;  
     padding-left: 2%; 
     color: red; 
+}
+
+.malady-page-header{
+    text-align: center;
+    font-size: 32px;
 }
 
 #new-remedy-form{

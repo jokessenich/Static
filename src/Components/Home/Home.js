@@ -20,7 +20,7 @@ export default class Home extends React.Component {
         e.preventDefault()
 
         const searchTerm = e.currentTarget['home-search-term'].value.toLowerCase()
-        const maladyArr = this.context.maladies.filter(mal=> mal.malady_name.toLowerCase() === searchTerm)
+        const maladyArr = this.context.maladies.filter(mal=> mal.malady_name.toLowerCase().includes(searchTerm))
         
         if(!maladyArr[0]){
             this.props.history.push(`maladynotfound/${searchTerm}`)
@@ -89,17 +89,10 @@ export default class Home extends React.Component {
 
                 </section>
 
-                 <section className = "browse-maladies">
-                    <Link to = '/maladylist' className = "home-browse">Browse Conditions</Link>
+                <section className="app-explain">
+                    <p>OurHealth allows you to find and share the best alternative and natural remedies.</p>
                 </section>
 
-                <section className="app-explain">
-                    <p>OurHealth is a web app with user generated content that allows users to search for alternative remedies.
-                        Visitors can search any condition in the database to find the natural remedy that suits them.
-                        Users can login for the added functionality of creating maladies or remedies, or rating the remedies.
-                    </p>
-                </section>
-                
             </div>
         )
     }

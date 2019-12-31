@@ -12,7 +12,8 @@ export default class Remedy extends React.Component {
             likeId: "",
             likes: 0,
             dislikes: 0,
-            createdRem: []
+            createdRem: [],
+            error: ""
         }
     }
 
@@ -42,7 +43,7 @@ export default class Remedy extends React.Component {
                 })
 
                 .catch(error=>{
-                    this.props.history.push('/ErrorPage')
+                    return;
                 })
         }
 
@@ -88,12 +89,21 @@ export default class Remedy extends React.Component {
                 .then(res => res.json())
 
                 .then(res => {
+                    if(newStatus ===true){
                     this.setState({
-                        liked: newStatus
+                        liked: true,
+                        likes: this.state.likes+1,
+                        feedback:true
                     })
+                }
+                    if(newStatus ===false){
+                        this.setState({
+                            liked: false,
+                            dislikes: this.state.dislikes+1,
+                            feedback:true
+                        })}
                 })
 
-                .then(res => window.location.reload())
         }
 
         else {
@@ -108,20 +118,62 @@ export default class Remedy extends React.Component {
             })
 
                 .then(res => {
+
                     if(!res.ok){
                         return res.json()
                         .then(error=>{
                             throw error
                         })
                     }
+                    
+                    if(this.state.liked ===null&&newStatus===true){
                     this.setState({
-                        liked: newStatus
+                        liked: newStatus,
+                        likes:this.state.likes+1
+                        })
+                    }
+
+                    if(this.state.liked ===null&&newStatus===false){
+                        this.setState({
+                            liked: newStatus,
+                            dislikes:this.state.dislikes+1
+                            })
+                        }
+                        
+                    if(this.state.liked ===true&&newStatus===false){
+                        this.setState({
+                            liked: newStatus,
+                            likes:this.state.likes-1,
+                            dislikes:this.state.dislikes+1
+                            })
+                        }    
+
+                    if(this.state.liked ===true&&newStatus===null){
+                        this.setState({
+                            liked: newStatus,
+                            likes:this.state.likes-1
+                            })
+                        }
+
+                    if(this.state.liked ===false&&newStatus===true){
+                        this.setState({
+                            liked: newStatus,
+                            likes:this.state.likes+1,
+                            dislikes:this.state.dislikes-1
+                            })
+                        }  
+
+                    if(this.state.liked ===false&&newStatus===null){
+                        this.setState({
+                            liked: newStatus,
+                            dislikes:this.state.dislikes-1
+                            })
+                        }                   
                     })
-                })
 
-                .then(res => window.location.reload())
 
-                .catch(error=> this.props.history.push('/ErrorPage'))
+                .catch(error=> {
+                    return})
         }
     }
 
@@ -175,7 +227,6 @@ export default class Remedy extends React.Component {
                 <img src="https://img.icons8.com/office/40/000000/good-quality.png" 
                     className="like-button"
                     onClick={() => this.handleLike(true)}
-                    className="like-button"
                     height="40px"
                     alt="already disliked thumbs up icon">
                 </img>
@@ -204,7 +255,22 @@ export default class Remedy extends React.Component {
 
     render() {
         const deleteIt = this.state.createdRem.length === 0 ? "" : <button onClick={this.handleDelete}>Delete</button>
-        const likeIt = this.context.isLoggedIn ? this.createLikeButton : () => ""
+        const likeIt = this.context.isLoggedIn ? this.createLikeButton : () =>  <div>
+                                                                                    <span className="likes-count">{this.state.likes}</span>
+                                                                                        <img src="https://img.icons8.com/office/40/000000/good-quality.png" 
+                                                                                            className="like-button"
+                                                                                            height="40px"
+                                                                                            onClick={()=>this.setState({error:"Must be logged in to give feedback"})}
+                                                                                            alt="thumbs up icon" />
+
+                                                                                    <span className="likes-count">{this.state.dislikes}</span>
+                                                                                        <img src="https://img.icons8.com/officel/40/000000/poor-quality.png" 
+                                                                                            className="like-button"
+                                                                                            height="40px"
+                                                                                            onClick={()=>this.setState({error:"Must be logged in to give feedback"})}
+                                                                                            alt="thumbs down icon" />
+                                                                                </div>
+                                                                                                            
         return (
 
             <div className="remedy-section">
@@ -212,6 +278,7 @@ export default class Remedy extends React.Component {
 
                 <p>{this.props.rem.remedy_description}</p>
                 {likeIt()}
+                <p className ="feedback-error">{this.state.error}</p>
                 {deleteIt}
                 <p>Reference: {this.props.rem.remedy_reference}</p>
                 <p>--</p>

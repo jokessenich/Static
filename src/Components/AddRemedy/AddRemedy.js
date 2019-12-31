@@ -57,11 +57,18 @@ export default class AddRemedy extends React.Component {
         const { malady, remedy, reference, description } = this.state
         const maladyResults = this.context.maladies.filter(mal => mal.malady_name.toLowerCase() === malady.toLowerCase())
         
+        if(this.context.isLoggedIn===false){
+            this.setState({
+                error: `You must log in to add a Remedy.`
+            })
+            return
+        }
+
+        
         if(maladyResults.length===0){
             this.setState({
                 error: `No maladies found with a name of ${malady}.`
             })
-            window.scrollTo(0, 0)
             return
         }
 
@@ -69,7 +76,6 @@ export default class AddRemedy extends React.Component {
             this.setState({
                 error: `Remedy must have a name.`
             })
-            window.scrollTo(0, 0)
             return
         }
 
@@ -77,9 +83,8 @@ export default class AddRemedy extends React.Component {
 
         if(newDescription.length <10){
             this.setState({
-                error: `Description must be at least 10 words.`
+                error: `Description must be at least 10 characters.`
             })
-            window.scrollTo(0, 0)
             return;
         }
 
@@ -87,7 +92,6 @@ export default class AddRemedy extends React.Component {
             this.setState({
                 error: `Reference must be included.`
             })
-            window.scrollTo(0, 0)
             return;
         }
 
@@ -112,7 +116,7 @@ export default class AddRemedy extends React.Component {
                     return res.json()
             })
             .then(data => {
-                window.location.reload()
+                window.location.assign(`http://localhost:3000/malady/${maladyResults[0].id}`)
             })
 
             .catch(error=> this.props.history.push('/ErrorPage'))
@@ -131,13 +135,11 @@ export default class AddRemedy extends React.Component {
                         this.state.malady.length!==0 ? <Link to='/addMalady' className="autofill-rem">No Matches. Click to Add</Link> : this.state.options.map(mal => <p className="autofill-rem" onClick={() => this.handleFill(mal.malady_name)} key={mal.id} to={`/malady/${mal.id}`}>{mal.malady_name}</p>)
 
         let header = this.props.noHeader ? <header>
-                                                <h1>Add Remedy</h1>
-                                                <p>{this.state.error}</p>
+                                                <h1 className="malady-page-header">Add Remedy</h1>
                                             </header>
                                             :
                                             <header className="add-page-header">
                                                 <h1>Add Remedy</h1>
-                                                <p>{this.state.error}</p>
                                             </header>
         return (
             
@@ -179,6 +181,9 @@ export default class AddRemedy extends React.Component {
                         className="login-button">
                         Add
                     </button>
+
+                    <p>{this.state.error}</p>
+
                 </form>
 
             </div>

@@ -112,7 +112,7 @@ export default class Register extends React.Component {
                         name='username'
                         onChange={this.onChange}></input><br />
 
-                    <label htmlFor='Password' >Password</label><br />
+                    <label htmlFor='Password' >Password <span className="p-advice"> (min. 6 characters)</span></label><br />
                     <input
                         type='password'
                         id='password'
