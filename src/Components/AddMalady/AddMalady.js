@@ -76,7 +76,7 @@ export default class AddMalady extends React.Component {
         })
             .then(res => res.json())
             .then(data => {
-                window.location.assign('http://localhost:3000/maladylist')})
+                window.location.assign(`${config.API_ENDPOINT}/maladylist`)})
     }
 
     render() {
