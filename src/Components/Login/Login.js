@@ -5,56 +5,13 @@ import config from '../../config'
 import Context from '../../Context'
 
 export default class Login extends React.Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            error: ""
-        }
-    }
 
     static contextType = Context
 
-    handleLogin = (e) => {
-
+    handleLogin = (e) =>{
         e.preventDefault()
-        const username = e.currentTarget['login-username'].value.toLowerCase()
-        const password = e.currentTarget['login-password'].value
-
-        fetch(`${config.API_ENDPOINT}/users/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: `{"username": "${username}",
-                        "userpassword": "${password}"
-                    }`
-        })
-
-            .then(res => {
-                if (!res.ok) {
-                    return res.json()
-                        .then(error => {
-                            throw error
-                        })
-                }
-                return res.json()
-            })
-
-            .then(token => {
-                localStorage.setItem('token', token)
-            })
-
-            .then(res => {
-                this.context.handleLogin()
-                this.props.history.push('/')
-            })
-
-            .catch(error => {
-                this.setState({
-                    error: error.message
-                })
-            })
+        console.log('inside handle login')
+        this.context.handleLogIn()
     }
 
     render() {
@@ -68,7 +25,7 @@ export default class Login extends React.Component {
                 </header>
 
                 <section className="login-body">
-                    <form className="login-form" onSubmit={this.handleLogin}>
+                    <form className="login-form">
                         <label htmlFor='Username'>Username/Email <br /></label>
                         <input
                             type='text'
@@ -80,11 +37,8 @@ export default class Login extends React.Component {
                             type='password'
                             id='login-password'
                             name='login-password'></input><br />
-
-                        <button className="login-button" type="submit">Login</button>
-                        {this.state.error}
-                        <p>Demo Username: demo</p>
-                        <p>Demo Password: 121212</p>
+                        <p>Click button for automatic login</p>
+                        <button className="login-button" type="submit" onClick={this.handleLogin}>Login</button>
 
                     </form>
 

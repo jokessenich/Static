@@ -27,12 +27,6 @@ export default class Malady extends React.Component {
         })
     }
 
-    showSym = () => {
-        this.setState({
-            showSym: !this.state.showSym
-        })
-    }
-
 
     render() {
         const remedy = this.context.remedies.filter(remedy => remedy.remedy_malady === parseInt(this.props.match.params.id))

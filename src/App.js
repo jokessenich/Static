@@ -12,68 +12,68 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      maladies: [],
-      remedies: [],
+      maladies: [
+        {
+          id:1,
+          malady_name: "lice",
+          malady_description: "bad bugs",
+          malady_symptoms: "itchy", 
+          userid : null 
+  },
+      {
+          id:2,
+          malady_name: "cold",
+          malady_description: "virus",
+      malady_symptoms: "cough", 
+      userid : null
+  },
+      {
+          id:3,
+          malady_name: "obesity",
+          malady_description: "being overweight",
+      malady_symptoms: "overeating", 
+      userid : null
+  }
+      ],
+      remedies: [
+        {
+          id:1,
+          remedy_name: "lice spray",
+          remedy_description: "Buy a spray and solve the problem",
+          remedy_reference: "website",
+          remedy_malady: 1, 
+          userid : null 
+  },
+      {
+          id:2,
+          remedy_name: "cold medicine",
+          remedy_description: "go to cvs and buy cold medicine",
+          remedy_reference: "website",
+          remedy_malady: 2, 
+          userid : null
+  },
+      {
+          id:3,
+          remedy_name: "obesity",
+          remedy_description: "eating less",
+          remedy_reference: "website",
+          remedy_malady: 3, 
+          userid : null
+  }
+      ],
       isLoggedIn: false,
       likes: [],
       error: false
     }
   }
 
-  componentDidMount() {
-    Promise.all([
-      fetch(`${config.API_ENDPOINT}/remedies`),
-      fetch(`${config.API_ENDPOINT}/maladies`),
-      fetch(`${config.API_ENDPOINT}/likes`),
-      fetch(`${config.API_ENDPOINT}/users/verify/${localStorage.getItem('token')}`)
-    ])
 
-      .then(([remedyRes, maladyRes, likesRes, userIdRes]) => {
-          if(!remedyRes.ok){
-            return remedyRes.json().then(e => Promise.reject(e));
-          }
-
-          if(!maladyRes.ok){
-            return maladyRes.json().then(e => Promise.reject(e));
-          }
-
-          if(!likesRes.ok){
-            return likesRes.json().then(e => Promise.reject(e));
-          }
-
-
-        return Promise.all([remedyRes.json(), maladyRes.json(), likesRes.json(), userIdRes.json()])
-      })
-
-      .then(([remedies, maladies, likes, isLoggedIn]) => {
-        this.setState({ remedies, maladies, likes, isLoggedIn })
-       
-      })
-
-      .catch(error=>{
-        this.setState({
-          error: true
-        })
-      })
-      
-      
-  }
-
-  handleLogin = () => {
+  handleLogIn =()=>{
+    console.log('inside app')
     this.setState({
       isLoggedIn: true
     })
   }
-
-  handleLogout = () => {
-    this.setState({
-      isLoggedIn: false
-    })
-    localStorage.removeItem('token')
-  }
-
-
-
 
   render() {
     
@@ -82,8 +82,9 @@ class App extends React.Component {
       maladies: this.state.maladies,
       isLoggedIn: this.state.isLoggedIn,
       likes: this.state.likes,
-      handleLogin: this.handleLogin,
-      handleLogout: this.handleLogout
+      error: this.state.error,
+      handleLogIn: this.handleLogIn
+
     }
 
     const appPage = this.state.error? <div>
